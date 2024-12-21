@@ -1,7 +1,7 @@
 import { HERO_CONTENT } from "../constants";
 import React from "react";
 import profilePic from "../assets/pp2.jpg";
-import { motion } from "motion/react"
+import { motion } from "framer-motion"; // Ensure Framer Motion is installed
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -12,61 +12,60 @@ const container = (delay) => ({
   },
 });
 
-
 const Hero = () => {
   return (
-    <div id="home" className="relative lg:mb-32 pt-40">
-      {/* Background Theme */}
-
-      <div className="flex flex-wrap relative z-10">
-        {/* Image Section with Bigger Gradient Ring Shifted Down */}
-        <div className="relative w-full lg:w-1/3 flex justify-center lg:justify-start lg:p-4">
+    <div id="home" className="relative lg:mb-32 pt-20 md:pt-40 px-4">
+      {/* Wrapper for Image and Text */}
+      <div className="flex flex-col lg:flex-row items-center lg:items-start relative z-10 space-y-10 lg:space-y-0 lg:space-x-8">
+        {/* Image Section */}
+        <div className="relative w-full lg:w-1/3 flex justify-center lg:justify-start">
           <div className="relative">
-            {/* Adjusted Gradient Ring */}
+            {/* Gradient Ring */}
             <div
               className="absolute top-[30px] left-[-30px] right-[-30px] bottom-[-50px] rounded-full 
               bg-gradient-to-r from-[#63e] to-[#9370db] opacity-50 blur-[40px]"
             ></div>
 
-            {/* Image with Bottom Cropped */}
+            {/* Profile Picture */}
             <img
               src={profilePic}
               alt="Akshiti"
-              className="relative w-80 h-80 lg:w-[20rem] lg:h-[20rem] rounded-full object-cover shadow-2xl 
+              className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-[20rem] lg:h-[20rem] rounded-full object-cover shadow-2xl 
               hover:scale-105 transition-transform duration-300 ease-in-out object-top"
             />
           </div>
         </div>
 
-        {/* Text Section Positioned at Bottom Right */}
-        <div className="absolute bottom-8 right-8 w-full lg:w-2/3 px-4 lg:px-8 text-right text-white">
-          {/* Heading */}
-          <motion.h1 
-            variants = {container(0)}
-            initial = "hidden"
-            animate = "visible"
-            className="pb-4 text-6xl lg:text-8xl font-thin leading-tight text-gray-300 drop-shadow-lg"
+        {/* Text Section */}
+        <div className="w-full lg:w-2/3 text-center lg:text-right text-white space-y-4">
+          {/* Name Heading */}
+          <motion.h1
+            variants={container(0)}
+            initial="hidden"
+            animate="visible"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-thin leading-tight text-gray-300 drop-shadow-lg"
           >
             Akshiti Agarwal
           </motion.h1>
 
           {/* Gradient Subtitle */}
           <motion.span
-          variants = {container(0.5)}
-          initial = "hidden"
-          animate = "visible"
-            className="bg-gradient-to-r from-[#63e] to-[#9370db]
-            bg-clip-text text-2xl font-medium tracking-tight text-transparent"
+            variants={container(0.5)}
+            initial="hidden"
+            animate="visible"
+            className="block bg-gradient-to-r from-[#63e] to-[#9370db]
+            bg-clip-text text-lg sm:text-xl lg:text-2xl font-medium tracking-tight text-transparent"
           >
             Software Developer
           </motion.span>
 
           {/* Description */}
-          <motion.p 
-          variants = {container(1)}
-          initial = "hidden"
-          animate = "visible"
-          className="mt-6 text-lg font-light leading-relaxed tracking-wide text-gray-300 text-justify">
+          <motion.p
+            variants={container(1)}
+            initial="hidden"
+            animate="visible"
+            className="mt-6 text-sm sm:text-base md:text-lg font-light leading-relaxed tracking-wide text-gray-300 text-justify lg:text-right"
+          >
             {HERO_CONTENT}
           </motion.p>
         </div>

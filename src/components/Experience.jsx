@@ -1,5 +1,5 @@
 import { EXPERIENCES } from "../constants";
-import { motion } from "framer-motion"; // Install with 'npm install framer-motion'
+import { motion } from "framer-motion"; // Ensure Framer Motion is installed
 
 const Experience = () => {
   // Animation variants for slide-in and fade-in effects
@@ -13,26 +13,27 @@ const Experience = () => {
   });
 
   return (
-    <div className="border-b border-neutral-900 pb-16">
+    <div className="border-b border-neutral-900 pb-16 px-4 sm:px-8">
+      {/* Section Heading */}
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="my-20 text-center text-4xl text-gray-300"
+        className="my-20 text-center text-3xl sm:text-4xl text-gray-300"
       >
         Experience
       </motion.h1>
 
       {/* Timeline Container */}
-      <div className="relative mx-auto w-full max-w-4xl">
+      <div className="relative mx-auto w-full max-w-5xl">
         {/* Vertical Line */}
         <motion.div
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="absolute left-8 top-0 h-full w-1 bg-neutral-800 hidden lg:block z-0 origin-top"
+          className="absolute left-1 sm:left-8 top-0 h-full w-1 bg-neutral-800 hidden lg:block z-0 origin-top"
         ></motion.div>
 
         {/* Timeline Entries */}
@@ -53,12 +54,14 @@ const Experience = () => {
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="absolute left-[1.6rem] top-[1.5rem] h-5 w-5 bg-purple-400 rounded-full border-4 border-neutral-900 hidden lg:block z-0"
+              className="absolute left-[1.2rem] sm:left-[1.6rem] top-[1.5rem] h-5 w-5 bg-purple-400 rounded-full border-4 border-neutral-900 hidden lg:block z-0"
             ></motion.div>
 
             {/* Year */}
             <div className="w-full lg:w-1/4 mb-4 lg:mb-0 lg:pl-16 lg:pr-8 text-center lg:text-left">
-              <p className="text-sm text-neutral-400">{experience.year}</p>
+              <p className="text-sm sm:text-base text-neutral-400">
+                {experience.year}
+              </p>
             </div>
 
             {/* Experience Card */}

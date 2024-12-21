@@ -40,14 +40,14 @@ const About = () => {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.4 }} // Adjusted viewport trigger to avoid being missed
       variants={containerVariants}
-      className="border-b border-neutral-900 pt-8 pb-20"
+      className="border-b border-neutral-900 pt-8 pb-12 px-4 sm:px-6"
     >
       {/* Centered Heading */}
       <motion.h1
         variants={headingVariants}
-        className="my-10 text-center text-4xl font-bold text-gray-200"
+        className="my-6 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-200"
       >
         About Me
       </motion.h1>
@@ -55,13 +55,13 @@ const About = () => {
       {/* Paragraphs with Reveal Animation */}
       <motion.div
         variants={containerVariants}
-        className="w-full lg:w-3/4 mx-auto text-justify"
+        className="w-full md:w-11/12 lg:w-3/4 mx-auto text-justify space-y-4 sm:space-y-6"
       >
         {aboutParagraphs.map((paragraph, index) => (
           <motion.p
             key={index}
             variants={revealVariants}
-            className="mt-6 text-lg text-neutral-300 leading-relaxed"
+            className="text-sm sm:text-base md:text-lg text-neutral-300 leading-relaxed"
           >
             {paragraph.endsWith(".") ? paragraph : `${paragraph}.`}
           </motion.p>

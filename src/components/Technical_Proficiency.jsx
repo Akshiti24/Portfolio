@@ -36,13 +36,6 @@ const icons = [
 ];
 
 const Technical_Proficiency = () => {
-  const rows = [
-    icons.slice(0, 6),  // Row 1: 6 icons
-    icons.slice(6, 12), // Row 2: 6 icons
-    icons.slice(12, 18), // Row 3: 6 icons
-    icons.slice(18, 23), // Row 4: 5 icons
-  ];
-
   const waveVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (i) => ({
@@ -60,7 +53,7 @@ const Technical_Proficiency = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1 }}
-        className="my-10 text-center text-4xl text-gray-300"
+        className="my-10 text-center text-3xl sm:text-4xl text-gray-300"
       >
         Technical Proficiency
       </motion.h1>
@@ -70,29 +63,20 @@ const Technical_Proficiency = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
-        className="flex flex-col items-center gap-8"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mx-auto max-w-5xl px-4"
       >
-        {rows.map((row, rowIndex) => (
-          <div
-            key={rowIndex}
-            className={`flex justify-center gap-8 ${
-              rowIndex % 2 === 1 ? "translate-x-4" : ""
-            }`}
+        {icons.map((icon, index) => (
+          <motion.div
+            key={index}
+            custom={index}
+            variants={waveVariants}
+            whileHover={{ y: -10, scale: 1.1 }}
+            className="flex justify-center items-center w-20 h-20 sm:w-24 sm:h-24 rounded-2xl border-4 border-gray-700 transition-transform duration-300"
           >
-            {row.map((icon, index) => (
-              <motion.div
-                key={index}
-                custom={index}
-                variants={waveVariants}
-                whileHover={{ y: -10, scale: 1.1 }}
-                className="flex justify-center items-center w-24 h-24 rounded-2xl border-4 border-gray-700"
-              >
-                <div className="text-[4rem]" style={{ color: icon.color }}>
-                  {icon.component}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+            <div className="text-[3rem] sm:text-[4rem]" style={{ color: icon.color }}>
+              {icon.component}
+            </div>
+          </motion.div>
         ))}
       </motion.div>
     </div>
