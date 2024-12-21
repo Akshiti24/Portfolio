@@ -63,7 +63,7 @@ const Technical_Proficiency = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mx-auto max-w-5xl px-4"
+        className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6 sm:gap-8 mx-auto max-w-6xl px-4"
       >
         {icons.map((icon, index) => (
           <motion.div
@@ -71,9 +71,12 @@ const Technical_Proficiency = () => {
             custom={index}
             variants={waveVariants}
             whileHover={{ y: -10, scale: 1.1 }}
-            className="flex justify-center items-center w-20 h-20 sm:w-24 sm:h-24 rounded-2xl border-4 border-gray-700 transition-transform duration-300"
+            className="flex justify-center items-center w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-gray-700 bg-gray-800 transition-transform duration-300"
           >
-            <div className="text-[3rem] sm:text-[4rem]" style={{ color: icon.color }}>
+            <div
+              className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] flex items-center justify-center"
+              style={{ color: icon.color }}
+            >
               {icon.component}
             </div>
           </motion.div>
