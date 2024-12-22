@@ -61,11 +61,11 @@ const Hero = () => {
 
           {/* Description */}
           <motion.p
-            variants={container(1)}
-            initial="hidden"
-            animate="visible"
-            className="mt-6 text-sm sm:text-base md:text-lg font-light leading-relaxed tracking-wide text-gray-300 text-justify lg:text-right"
-          >
+  variants={container(1)}
+  initial="hidden"
+  animate="visible"
+  className="mt-6 text-sm sm:text-base md:text-lg font-light leading-relaxed tracking-wide text-gray-300 text-justify"
+>
             {HERO_CONTENT}
           </motion.p>
         </div>
