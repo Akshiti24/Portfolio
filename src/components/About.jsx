@@ -47,7 +47,8 @@ const About = () => {
       {/* Centered Heading */}
       <motion.h1
         variants={headingVariants}
-        className="my-6 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-200"
+        className="my-6 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl
+         text-gray-200"
       >
         About Me
       </motion.h1>
